@@ -900,39 +900,3 @@
   </script>
 </body>
 </html>
-
-    function showAdminLogin() {
-      document.getElementById("admin-login").classList.remove("hidden");
-      document.getElementById("admin-panel").classList.add("hidden");
-      document.getElementById("customer-panel").classList.add("hidden");
-    }
-
-    function showCustomerPanel() {
-      isAdmin = false;
-      document.getElementById("admin-login").classList.add("hidden");
-      document.getElementById("admin-panel").classList.add("hidden");
-      document.getElementById("customer-panel").classList.remove("hidden");
-      renderCategories();
-      renderProducts();
-      renderCart();
-    }
-
-    function checkoutCart() {
-      if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-      }
-      const total = cart.reduce((acc, item) => acc + parseFloat(item.price), 0).toFixed(2);
-      alert(`Thank you for your purchase! Total: $${total}`);
-      cart = [];
-      localStorage.setItem("cart", JSON.stringify(cart));
-      renderCart();
-    }
-
-    // Initialize
-    initializeTheme();
-    renderCategories();
-    showCustomerPanel();
-  </script>
-</body>
-</html>
